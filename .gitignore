@@ -14,3 +14,9 @@
 /coverage
 .env
 /public/uploads
+
+
+# Ignore unnecessary react files
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
