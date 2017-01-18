@@ -1,66 +1,66 @@
 require 'rails_helper'
 
-feature 'Sign Up' do
-  scenario 'specifying valid and required information' do
+feature 'Sign in' do
+  scenario 'an existing user specifies a valid email and password' do
+    user = FactoryGirl.create(:user)
     visit root_path
-    click_link 'Sign Up'
+    click_link 'Sign In'
 
-    fill_in 'Username', with: 'birdman'
-    fill_in 'Email', with: 'birdie@gmail.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'Confirm Password', with: 'password'
-    click_button 'Sign Up'
+    fill_in 'Electronic Mail', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
 
-    expect(page).to have_content("Whassup Dog! You Have Successfully Signed In.")
+    expect(page).to have_content("Whassup Dawg! Welcome Back!")
     expect(page).to have_content("Sign Out")
-  end
-
-  scenario 'required information is not supplied' do
-    visit root_path
-    click_link 'Sign Up'
-    click_button 'Sign Up'
-
-    expect(page).to have_content("Something Went Wrong. That's Whack!")
-    expect(page).to have_content("Please Specify A Username.")
-    expect(page).to have_content("Please Specify An Email.")
-    expect(page).to have_content("Please Specify A Password.")
+    expect(page).to_not have_content("Sign Up")
+    expect(page).to_not have_content("Sign In")
+    click_link 'Sign Out'
+    expect(page).to have_content("Sign Up")
+    expect(page).to have_content("Sign In")
     expect(page).to_not have_content("Sign Out")
   end
 
-  scenario 'password confirmation does not match confirmation' do
+  scenario 'a nonexistant email and password is supplied' do
     visit root_path
-    click_link 'Sign Up'
-
-    fill_in 'Username', with: 'birdman'
-    fill_in 'Email', with: 'birdie@gmail.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'Confirm Password', with: 'not password'
-    click_button 'Sign Up'
-
-    expect(page).to have_content("Something Went Wrong. That's Whack!")
-    expect(page).to have_content("Password Does Not Match")
+    click_link 'Sign In'
+    fill_in 'Electronic Mail', with: 'nonbody@gmail.com'
+    fill_in 'Password', with: 'wrbdstdaetnat'
+    click_button 'Sign In'
+    expect(page).to have_content("Invalid Electronic Mail or Password")
+    expect(page).to_not have_content("Whassup Dawg! Welcome Back!")
     expect(page).to_not have_content("Sign Out")
+    expect(page).to have_content("Sign In")
   end
 
-  scenario 'invalid email supplied' do
-    visit root_path
-    click_link 'Sign Up'
-    fill_in 'Email', with: 'birdie@gmailcom'
-    click_button 'Sign Up'
+  scenario 'an existing email and wrong password is denied access' do
+    user = FactoryGirl.create(:user)
 
-    expect(page).to have_content("Something Went Wrong. That's Whack!")
-    expect(page).to have_content("Please Specify A Valid Email.")
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Electronic Mail', with: user.email
+    fill_in 'Password', with: 'wrbdstdaetnat'
+    click_button 'Sign In'
+    expect(page).to have_content("Invalid Electronic Mail or Password")
+    expect(page).to_not have_content("Whassup Dawg! Welcome Back!")
     expect(page).to_not have_content("Sign Out")
+    expect(page).to have_content("Sign In")
   end
 
-  scenario 'password is too short' do
-    visit root_path
-    click_link 'Sign Up'
-    fill_in 'user_password', with: '123'
-    click_button 'Sign Up'
+  scenario 'an already authenticated user cannot re-sign in' do
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Electronic Mail', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign In'
 
-    expect(page).to have_content("Something Went Wrong. That's Whack!")
-    expect(page).to have_content("Password Is Too Short (6 Characters Minimum)")
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to have_content("Sign Out")
+    expect(page).to_not have_content("Sign Up")
+    expect(page).to_not have_content("Sign In")
+
+    visit new_user_session_path
+    save_and_open_page
+    expect(page).to have_content("You are already signed in dawg.")
   end
+
+
 end
