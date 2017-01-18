@@ -3,5 +3,8 @@ engines:
   fixme:
     enabled: true
 ratings:
-  paths: []
+  paths:
+    - "app/**/*"
+    - "lib/**/*"
+    - "**.rb"
 exclude_paths: []
