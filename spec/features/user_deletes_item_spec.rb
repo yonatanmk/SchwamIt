@@ -27,6 +27,7 @@ feature "User deletes an existing item" do
     click_link 'Delete'
 
     expect(page).to have_no_content "Pokemon"
+    expect(page).to have_content "You deleted a Thing"
     expect(page).to have_current_path(items_path)
   end
 
@@ -41,6 +42,7 @@ feature "User deletes an existing item" do
     click_link 'Delete'
 
     expect(page).to have_no_content "Pokemon"
+    expect(page).to have_content "You deleted a Thing"
     expect(page).to have_current_path(items_path)
   end
 end
