@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
 
-    if @item.save
+    if @item.save && verify_recaptcha(model: @item)
       redirect_to @item
     else
       render :new
