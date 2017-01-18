@@ -19,6 +19,11 @@ feature "user creates a new item" do
     expect(page).to have_link "Back"
   end
   scenario "adds a 90s thing unsuccessfully" do
+    visit new_item_path
+    fill_in "Title", with: "Skip-It"
+    click_button "Create Item"
 
+    expect(page).to have_content "Submit a new 90s thing"
+    expect(find_field("Title").value).to eq "Skip-It"
   end
 end
