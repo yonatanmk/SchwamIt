@@ -1,7 +1,5 @@
 require "rails_helper"
 
-require 'Pry'
-
 feature "User edits an existing item" do
 
   before(:each) do
