@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @title = Item.find(params[:id]).title
     @item = Item.find(params[:id])
   end
 
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to @item
     else
+      @title = Item.find(params[:id]).title
       render :edit
     end
   end
