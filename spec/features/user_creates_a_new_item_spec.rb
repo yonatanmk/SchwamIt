@@ -5,7 +5,7 @@ feature "user creates a new item" do
   before(:each) do
     visit new_user_registration_path
     fill_in 'Username', with: 'birdman'
-    fill_in 'Email', with: 'birdie@gmail.com'
+    fill_in 'Electronic Mail', with: 'birdie@gmail.com'
     fill_in 'user_password', with: 'password'
     fill_in 'Confirm Password', with: 'password'
     click_button 'Sign Up'
