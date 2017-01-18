@@ -26,9 +26,9 @@ en:
         user:
           attributes:
             email:
-              blank: "Please Specify An Email."
-              taken: "Please Use A Different Email."
-              invalid: "Please Specify A Valid Email."
+              blank: "Please Specify An Electronic Mail."
+              taken: "Please Use A Different Electronic Mail."
+              invalid: "Please Specify A Valid Electronic Mail."
             password:
               blank: "Please Specify A Password."
               confirmation: "Password Does Not Match."
