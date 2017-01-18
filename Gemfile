@@ -1,11 +1,14 @@
 source 'https://rubygems.org/'
 
+gem 'devise'
 gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'simple_form'
+
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
@@ -14,6 +17,7 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
   gem 'pry-rails'
