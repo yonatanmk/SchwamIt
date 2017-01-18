@@ -6,8 +6,8 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'simple_form'
 gem 'devise'
+gem 'simple_form'
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -22,8 +22,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
-  gem 'valid_attribute'
   gem 'database_cleaner'
+  gem 'valid_attribute'
 end
 
 group :production do
