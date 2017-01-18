@@ -20,4 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Please Specify An Email."
+              taken: "Please Use A Different Email."
+              invalid: "Please Specify A Valid Email."
+            password:
+              blank: "Please Specify A Password."
+              confirmation: "Password Does Not Match."
+              too_short: "Password Is Too Short (6 Characters Minimum)"
+            password_confirmation:
+              blank: "Please Specify A Password Confirmation."
+              confirmation: "Password Does Not Match"
+            username:
+              blank: "Please Specify A Username."

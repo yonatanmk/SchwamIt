@@ -1,3 +1,3 @@
 [ ![Build Status](https://app.codeship.com/projects/05f88220-bf12-0134-b657-7a625a3fabd4/status?branch=master)](https://app.codeship.com/projects/196490)
-![Code Climate](https://codeclimate.com/github/sehrmann/SchwamIt.png)
-![Coverage Status](https://coveralls.io/repos/sehrmann/SchwamIt/badge.png)
+[![Code Climate](https://codeclimate.com/github/sehrmann/SchwamIt/badges/gpa.svg)](https://codeclimate.com/github/sehrmann/SchwamIt)
+[![Coverage Status](https://coveralls.io/repos/github/sehrmann/SchwamIt/badge.svg?branch=master)](https://coveralls.io/github/sehrmann/SchwamIt?branch=master)
