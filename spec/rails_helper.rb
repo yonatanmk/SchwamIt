@@ -60,12 +60,6 @@ require "valid_attribute"
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-end
-
-RSpec.configure do |config|
   config.include Warden::Test::Helpers
-end
-
-RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :feature
 end
