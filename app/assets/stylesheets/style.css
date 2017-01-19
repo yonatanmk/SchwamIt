@@ -47,6 +47,6 @@ h1 {
   margin: auto;
 }
 
-label {
+.content * {
   font-family: 'Bevan', cursive;
 }
