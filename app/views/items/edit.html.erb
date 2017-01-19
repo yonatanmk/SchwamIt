@@ -2,4 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Delete', @item, method: :delete, data: { confirm: "Are you sure?" } %>
+<% if @user_can_change %>
+  <%= link_to 'Delete', @item, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authorize_user, except: [:index, :show]
-  
+  before_action :visitor?, except: [:index, :show]
+
   def index
     @items = Item.all
   end
@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @reviews = @item.reviews
+    @user_can_change = current_user == @item.user || current_user.role == "admin"
   end
 
   def new
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
   def edit
     @title = Item.find(params[:id]).title
     @item = Item.find(params[:id])
+    @user_can_change = current_user == @item.user || current_user.role == "admin"
   end
 
   def update
@@ -58,7 +60,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:title, :description)
   end
 
-  def authorize_user
+  def visitor?
     if !user_signed_in?
       raise ActionController::RoutingError.new("Not Found")
     end
