@@ -5,7 +5,7 @@ feature "User deletes an existing item" do
     visit root_path
     click_link 'Sign Up'
     fill_in 'Username', with: 'birdman'
-    fill_in 'Email', with: 'birdie@gmail.com'
+    fill_in 'Electronic Mail', with: 'birdie@gmail.com'
     fill_in 'user_password', with: 'password'
     fill_in 'Confirm Password', with: 'password'
     click_button 'Sign Up'
@@ -27,6 +27,7 @@ feature "User deletes an existing item" do
     click_link 'Delete'
 
     expect(page).to have_no_content "Pokemon"
+    expect(page).to have_content "You deleted a Thing"
     expect(page).to have_current_path(items_path)
   end
 
@@ -41,6 +42,7 @@ feature "User deletes an existing item" do
     click_link 'Delete'
 
     expect(page).to have_no_content "Pokemon"
+    expect(page).to have_content "You deleted a Thing"
     expect(page).to have_current_path(items_path)
   end
 end

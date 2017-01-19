@@ -39,14 +39,38 @@ feature "User edits an existing item" do
     fill_in "Title", with: "Pokemon Red & Blue"
     click_button "Update Item"
     expect(page).to have_content "Pokemon Red & Blue"
+    expect(page).to have_content "You edited a Thing"
     expect(page).to have_current_path(item_path(Item.first))
   end
 
-  scenario "Edits item unsuccessfully" do
+  scenario "User leaves Title blank" do
     fill_in "Title", with: ""
     click_button "Update Item"
+
     expect(page).to have_content "Edit Pokemon"
+    expect(page).to have_content "Title can't be blank"
     expect(find_field("Title").value).to eq ""
     expect(find_field("Description").value).to eq "Gotta Catch 'Em All"
+  end
+
+  scenario "User leaves Description blank" do
+    fill_in "Description", with: ""
+    click_button "Update Item"
+
+    expect(page).to have_content "Description can't be blank"
+    expect(find_field("Title").value).to eq "Pokemon"
+    expect(find_field("Description").value).to eq ""
+  end
+
+  scenario "User leaves both fields blank" do
+    fill_in "Title", with: ""
+    fill_in "Description", with: ""
+    click_button "Update Item"
+
+    expect(page).to have_content "Edit Pokemon"
+    expect(page).to have_content "Title can't be blank"
+    expect(page).to have_content "Description can't be blank"
+    expect(find_field("Title").value).to eq ""
+    expect(find_field("Description").value).to eq ""
   end
 end
