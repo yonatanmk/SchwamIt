@@ -19,6 +19,7 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'warden-rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
