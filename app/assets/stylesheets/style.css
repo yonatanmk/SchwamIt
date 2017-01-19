@@ -1,0 +1,58 @@
+.top-bar,.title-area, .top-bar *, .top-bar ul {
+  color: #F9A785;
+  background-color: #6B427F;
+  /*border-style: solid;
+  border-width: 1px;
+  border-color: black;*/
+}
+
+body {
+  background-color: #05A0A8
+}
+
+a {
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.right {
+  float: right;
+  display: inline-block;
+}
+
+.title-area {
+  display: inline-block;
+  margin-bottom: 0px;
+}
+
+h1 {
+  margin-bottom: 0px;
+  font-family: 'Bevan', cursive;
+}
+
+.right-item {
+  display: inline-block;
+  font-size: 28px ;
+  font-family: 'Bevan', cursive;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.content {
+  width: 900px;
+  margin: auto;
+}
+
+.content * {
+  font-family: 'Bevan', cursive;
+}
+
+.error-msg {
+  color: #F9A785;
+  width: 900px;
+  margin: auto;
+  font-family: 'Bevan', cursive;
+}

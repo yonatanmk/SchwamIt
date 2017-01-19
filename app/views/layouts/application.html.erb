@@ -6,24 +6,38 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+<<<<<<< HEAD
     <script src='https://www.google.com/recaptcha/api.js'></script>
+=======
+    <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
+>>>>>>> ce0e2b1ed9084cda22b77c0d60c208944d175443
   </head>
 
   <body>
-    <nav>
-      <ul>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area small-3 columns" >
+        <li class="name">
+          <h1><a href="/">SchwamIt</a></h1>
+        </li>
+      </ul>
+      <ul class="right">
         <% if user_signed_in? %>
-          <li> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> </li>
+          <li class='right-item'> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> </li>
         <% else %>
-          <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
-          <li> <%= link_to 'Sign In', new_user_session_path %> </li>
+          <li class='right-item'> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+          <li class='right-item'> <%= link_to 'Sign In', new_user_session_path %> </li>
         <% end %>
       </ul>
     </nav>
-    <% flash.each do |name, msg| %>
-      <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-    <% end %>
-    <%= yield %>
+    <div class='error-msg'>
+      <% flash.each do |name, msg| %>
+        <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <% end %>
+    </div>
+
+    <div class='content'>
+      <%= yield %>
+    </div>
   </body>
 </html>

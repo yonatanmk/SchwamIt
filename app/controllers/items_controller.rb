@@ -17,8 +17,10 @@ class ItemsController < ApplicationController
     @item.user = current_user
     binding.pry
     if @item.save && verify_recaptcha(model: @item)
+      flash[:notice] = "You made a Thing"
       redirect_to @item
     else
+      flash[:notice] = @item.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -32,9 +34,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update(item_params)
+      flash[:notice] = "You edited a Thing"
       redirect_to @item
     else
       @title = Item.find(params[:id]).title
+      flash[:notice] = @item.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -42,6 +46,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
+    flash[:notice] = "You deleted a Thing"
     redirect_to items_path
   end
 
