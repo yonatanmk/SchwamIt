@@ -8,7 +8,10 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @reviews = @item.reviews
-    @user_can_change = current_user == @item.user || current_user.role == "admin"
+    @user_can_change = false
+    unless current_user.nil?
+      @user_can_change = current_user == @item.user || current_user.role == "admin"
+    end
   end
 
   def new
@@ -30,7 +33,10 @@ class ItemsController < ApplicationController
   def edit
     @title = Item.find(params[:id]).title
     @item = Item.find(params[:id])
-    @user_can_change = current_user == @item.user || current_user.role == "admin"
+    @user_can_change = false
+    unless current_user.nil?
+      @user_can_change = current_user == @item.user || current_user.role == "admin"
+    end
   end
 
   def update
