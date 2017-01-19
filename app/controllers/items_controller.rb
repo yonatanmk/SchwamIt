@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
     @items = Item.all
   end
@@ -15,7 +16,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-
     if @item.save
       flash[:notice] = "You made a Thing"
       redirect_to @item
@@ -55,4 +55,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :description)
   end
+
 end
