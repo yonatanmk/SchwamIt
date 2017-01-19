@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
     @items = Item.all
   end
@@ -14,7 +15,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-
+    binding.pry
     if @item.save && verify_recaptcha(model: @item)
       redirect_to @item
     else
@@ -49,4 +50,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :description)
   end
+
 end
