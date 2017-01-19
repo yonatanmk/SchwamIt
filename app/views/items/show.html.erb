@@ -5,4 +5,14 @@
 
 <p><u><%= link_to "Edit", edit_item_path %></u>
 <u><%= link_to 'Delete', @item, method: :delete, data: { confirm: "Are you sure?" } %></u>
+<u><%= link_to "Add Review", new_item_review_path(@item) %></u>
 <u><%= link_to "Back", items_path %></u></p>
+
+<ul>
+<% @reviews.each do |review| %>
+  <%= review.rating %>/5 - <%= review.user.username %>
+  <li><%= review.body %></li>
+  <%= review.score %><p>Up Vote</p><p>Up Vote</p><p>Edit</p><p>Delete</p>
+<%end%>
+</ul>
+ 
