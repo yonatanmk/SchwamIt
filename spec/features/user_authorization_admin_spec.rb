@@ -1,15 +1,14 @@
 require "rails_helper"
 
-feature "User authorization" do
+feature "Admin authorization" do
   before(:each) do
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user, role: "admin")
     user2 = FactoryGirl.create(:user)
-    FactoryGirl.create(:item, user: user)
     FactoryGirl.create(:item, user: user2)
     sign_in user
   end
 
-  scenario "user navigates to the index page" do
+  scenario "Admin navigates to the index page" do
     item = Item.first
 
     visit root_path
@@ -18,7 +17,7 @@ feature "User authorization" do
     expect(page).to have_content item.title
     expect(page).to_not have_content "Sign in to Submit a Thing"
   end
-  scenario "user navigates to an item's show page they own" do
+  scenario "Admin navigates to an item's show page" do
     item = Item.first
 
     visit root_path
@@ -29,18 +28,8 @@ feature "User authorization" do
     expect(page).to have_link "Edit"
     expect(page).to have_link "Delete"
   end
-  scenario "user navigates to an item's show page they don't own" do
-    item = Item.second
 
-    visit root_path
-    click_link item.title
-
-    expect(page).to have_content item.title
-    expect(page).to have_content item.description
-    expect(page).to_not have_link "Edit"
-    expect(page).to_not have_link "Delete"
-  end
-  scenario "user navigates to an item's edit page they own" do
+  scenario "Admin navigates to an item's edit page" do
     item = Item.first
 
     visit root_path
