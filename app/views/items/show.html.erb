@@ -12,7 +12,6 @@
 <% @reviews.each do |review| %>
   <%= review.rating %>/5 - <%= review.user.username %>
   <li><%= review.body %></li>
-  <%= review.score %><p>Up Vote</p><p>Up Vote</p><p>Edit</p><p>Delete</p>
+  <p><%= review.score %> - <u>Like</u> <u>Dislike</u> <u>Edit</u> <u><%= link_to 'Delete Review', [@item, review], method: :delete, data: { confirm: "Are you sure?" } %></u></p>
 <%end%>
 </ul>
- 
