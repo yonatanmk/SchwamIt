@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     binding.pry
-    if @item.save && verify_recaptcha(model: @item)
+    if @item.save
       flash[:notice] = "You made a Thing"
       redirect_to @item
     else
