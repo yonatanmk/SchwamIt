@@ -11,7 +11,7 @@ feature "user creates a new item" do
     click_button 'Sign Up'
   end
 
-  scenario "user can can navigate to the form from the index page" do
+  scenario "user can navigate to the form from the index page" do
     visit root_path
     click_link "Add a new Thing"
 
