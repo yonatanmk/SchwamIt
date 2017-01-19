@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    binding.pry
     if @item.save
       flash[:notice] = "You made a Thing"
       redirect_to @item
