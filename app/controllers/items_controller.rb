@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @user_can_create = !current_user.nil?
   end
 
   def show
