@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authorize_user, except: [:index, :show]
+  
   def index
     @items = Item.all
   end
@@ -55,4 +57,11 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:title, :description)
   end
+
+  def authorize_user
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("Not Found")
+    end
+  end
+
 end
