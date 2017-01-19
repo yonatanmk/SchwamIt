@@ -25,11 +25,12 @@
         <% end %>
       </ul>
     </nav>
-
-    <% flash.each do |name, msg| %>
-      <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-    <% end %>
+    <div class='error-msg'>
+      <% flash.each do |name, msg| %>
+        <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <% end %>
+    </div>
 
     <div class='content'>
       <%= yield %>

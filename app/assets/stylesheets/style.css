@@ -1,7 +1,6 @@
 .top-bar,.title-area, .top-bar *, .top-bar ul {
   color: #F9A785;
   background-color: #6B427F;
-  color: #F9A785;
   /*border-style: solid;
   border-width: 1px;
   border-color: black;*/
@@ -48,5 +47,12 @@ h1 {
 }
 
 .content * {
+  font-family: 'Bevan', cursive;
+}
+
+.error-msg {
+  color: #F9A785;
+  width: 900px;
+  margin: auto;
   font-family: 'Bevan', cursive;
 }
