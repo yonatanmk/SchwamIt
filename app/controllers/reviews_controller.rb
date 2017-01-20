@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :visitor?
+
   def new
     @item = Item.find(params[:item_id])
     @review = Review.new
@@ -49,5 +51,11 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :body)
+  end
+
+  def visitor?
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end
