@@ -23,8 +23,8 @@ feature "Visitor authorization" do
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
-    expect(page).to_not have_link "Edit"
-    expect(page).to_not have_link "Delete"
+    expect(page).to_not have_link "Edit Item"
+    expect(page).to_not have_link "Delete Item"
   end
   scenario "visitor paths to an item's show page" do
     item = Item.first
@@ -33,7 +33,7 @@ feature "Visitor authorization" do
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
-    expect(page).to_not have_link "Edit"
-    expect(page).to_not have_link "Delete"
+    expect(page).to_not have_link "Edit Item"
+    expect(page).to_not have_link "Delete Item"
   end
 end

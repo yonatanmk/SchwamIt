@@ -25,7 +25,7 @@ feature "Admin authorization" do
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
-    expect(page).to have_link "Edit"
+    expect(page).to have_link "Edit Item"
     expect(page).to have_link "Delete"
   end
 
@@ -34,7 +34,7 @@ feature "Admin authorization" do
 
     visit root_path
     click_link item.title
-    click_link "Edit"
+    click_link "Edit Item"
 
     expect(page).to have_link "Delete"
     expect(page).to have_button "Update Item"
