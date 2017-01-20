@@ -5,8 +5,8 @@
 
 <p>
   <% if @user_can_change %>
-    <u><%= link_to "Edit", edit_item_path %></u>
-    <u><%= link_to 'Delete', @item, method: :delete, data: { confirm: "Are you sure?" } %></u>
+    <u><%= link_to "Edit Item", edit_item_path %></u>
+    <u><%= link_to 'Delete Item', @item, method: :delete, data: { confirm: "Are you sure?" } %></u>
   <% end %>
   <u><%= link_to "Add Review", new_item_review_path(@item) %></u>
   <u><%= link_to "Back", items_path %></u>
@@ -16,6 +16,6 @@
 <% @reviews.each do |review| %>
   <%= review.rating %>/5 - <%= review.user.username %>
   <li><%= review.body %></li>
-  <p><%= review.score %> - <u>Like</u> <u>Dislike</u> <u>Edit</u> <u><%= link_to 'Delete Review', [@item, review], method: :delete, data: { confirm: "Are you sure?" } %></u></p>
+  <p><%= review.score %> - <u>Like</u> <u>Dislike</u> <u><%= link_to 'Edit Review', edit_item_review_path(@item, review) %></u> <u><%= link_to 'Delete Review', [@item, review], method: :delete, data: { confirm: "Are you sure?" } %></u></p>
 <%end%>
 </ul>

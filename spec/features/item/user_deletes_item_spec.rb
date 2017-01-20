@@ -30,19 +30,4 @@ feature "User deletes an existing item" do
     expect(page).to have_content "You deleted a Thing"
     expect(page).to have_current_path(items_path)
   end
-
-  scenario "users can choose to delete from the item's edit page" do
-    click_link 'Edit'
-
-    expect(find_link('Delete').visible?).to eq true
-  end
-
-  scenario "users can succesfully delete from the item's edit page" do
-    click_link 'Edit'
-    click_link 'Delete'
-
-    expect(page).to have_no_content "Pokemon"
-    expect(page).to have_content "You deleted a Thing"
-    expect(page).to have_current_path(items_path)
-  end
 end
