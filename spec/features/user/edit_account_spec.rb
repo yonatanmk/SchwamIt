@@ -10,10 +10,10 @@ feature "user edits their account" do
     fill_in 'user_password', with: 'password'
     fill_in 'Confirm Password', with: 'password'
     click_button 'Sign Up'
-    click_link 'Edit Account'
+    click_link 'Account Settings'
   end
 
-  scenario "user can navigate to the edit account page" do
+  scenario "user can navigate to the Account Settings page" do
     expect(page).to have_content "Edit User"
   end
 
@@ -27,7 +27,7 @@ feature "user edits their account" do
 
 
     expect(page).to have_content "Your account has been updated successfully"
-    click_link 'Edit Account'
+    click_link 'Account Settings'
     expect(find_field("Username").value).to eq "catman"
     expect(find_field("Electronic Mail").value).to eq "fishman@gmail.com"
     click_link 'Sign Out'
