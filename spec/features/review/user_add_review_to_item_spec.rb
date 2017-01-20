@@ -30,7 +30,6 @@ feature "user creates a review for an item" do
     click_link 'Add Review'
     click_button 'Create Review'
 
-    expect(page).to have_content "Body can't be blank"
     expect(page).to have_content "Rating can't be blank"
   end
 end
