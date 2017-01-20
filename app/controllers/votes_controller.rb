@@ -3,12 +3,12 @@ class VotesController < ApplicationController
 
   def up_vote
     update_vote!(1)
-    redirect_to :back
+    redirect_to item_path(params[:item_id])
   end
 
   def down_vote
     update_vote!(-1)
-    redirect_to :back
+    redirect_to item_path(params[:item_id])
   end
 
   private
@@ -20,7 +20,11 @@ class VotesController < ApplicationController
 
   def update_vote!(new_value)
     if @vote
-      @vote.update(value: new_value)
+      if @vote.value == new_value
+        @vote.update(value: 0)
+      else
+        @vote.update(value: new_value)
+      end
     else
       @vote = current_user.votes.create(value: new_value, review: @review)
       @vote.save
