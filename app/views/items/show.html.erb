@@ -17,7 +17,9 @@
 <ul>
 <% @reviews.each do |review| %>
   <%= review.rating %>/5 - <%= review.user.username %>
-  <li><%= review.body %></li>
+  <% if !review.body.nil? %>
+    <li><%= review.body %></li>
+  <% end %>
   <p><%= review.score %> - <u>Like</u> <u>Dislike</u>
     <% if !current_user.nil? %>
       <% if current_user == review.user || current_user.role == "admin" %>
