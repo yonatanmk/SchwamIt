@@ -3,15 +3,11 @@ require "rails_helper"
 feature "user creates a new item" do
 
   before(:each) do
-    visit new_user_registration_path
-    fill_in 'Username', with: 'birdman'
-    fill_in 'Electronic Mail', with: 'birdie@gmail.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'Confirm Password', with: 'password'
-    click_button 'Sign Up'
+    user = FactoryGirl.create(:user)
+    sign_in user
   end
 
-  scenario "user can can navigate to the form from the index page" do
+  scenario "user can navigate to the form from the index page" do
     visit root_path
     click_link "Add a new Thing"
 
