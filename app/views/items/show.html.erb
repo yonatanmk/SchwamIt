@@ -1,4 +1,4 @@
-<h1><%= @item.title %></h1>
+<h1 class="item-title" id=<%= @item.id.to_s %>><%= @item.title %></h1>
 <p>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
 
 <p><%= @item.description %></p>
@@ -12,11 +12,10 @@
   <u><%= link_to "Back", items_path %></u>
 </p>
 
-<ul>
 <% @reviews.each do |review| %>
-  <%= review.rating %>/5 - <%= review.user.username %>
-  <li><%= review.body %></li>
-  <div id="score">
+  <div class="review">
+    <%= review.rating %>/5 - <%= review.user.username %>
+    <%= review.body %>
     <%= review.score %>
     <u><%= link_to "Like", item_review_up_vote_path(@item.id, review.id), method: :post %></u>
     <u><%= link_to "Dislike", item_review_down_vote_path(@item.id, review.id), method: :post %></u>
@@ -24,4 +23,5 @@
     <u><%= link_to 'Delete Review', [@item, review], method: :delete, data: { confirm: "Are you sure?" } %></u>
   </div>
 <%end%>
-</ul>
+
+<div id="ReviewList"></div>

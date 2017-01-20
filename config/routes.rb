@@ -7,4 +7,11 @@ Rails.application.routes.draw do
       post '/down_vote' => 'votes#down_vote', as: :down_vote
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :items, only: [:index, :show]
+      resources :reviews, only: [:index, :show]
+    end
+  end
 end
