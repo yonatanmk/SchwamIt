@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom';
 import ReviewList from './components/ReviewList';
 
 $(function() {
-  ReactDOM.render(
-    < ReviewList
-    />,
-    document.getElementById('ReviewList')
-  );
+  if (document.getElementById('ReviewList')) {
+    ReactDOM.render(
+      < ReviewList
+      />,
+      document.getElementById('ReviewList')
+    );
+  }
 });

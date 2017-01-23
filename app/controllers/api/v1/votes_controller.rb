@@ -14,7 +14,8 @@ class Api::V1::VotesController < ApplicationController
 
   def load_review_and_vote
     @review = Review.find(params[:review_id])
-    @vote = @review.votes.where(user_id: params[:current_user_id]).first
+    @user = current_user
+    @vote = @review.votes.where(user: @user).first
   end
 
   def update_vote!(new_value)
@@ -25,7 +26,6 @@ class Api::V1::VotesController < ApplicationController
         @vote.update(value: new_value)
       end
     else
-      @user = User.find(params[:current_user_id])
       @vote = @user.votes.create(value: new_value, review: @review)
       @vote.save
     end

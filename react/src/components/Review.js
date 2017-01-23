@@ -17,24 +17,30 @@ class Review extends Component {
       body = <p>{this.props.body}</p>
     }
     if (this.props.currentUser) {
-      like = <u onClick={this.props.handleUpVote}> Like</u>
-      dislike = <u onClick={this.props.handleDownVote}> Dislike</u>
+      like = <div className="button success" onClick={this.props.handleUpVote}>
+              <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+             </div>
+      dislike = <div className="button alert" onClick={this.props.handleDownVote}>
+                  <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                </div>
       if (this.props.currentUser.id === this.props.user.id) {
-        edit = <u><a href={`/items/${this.props.itemId}/reviews/${this.props.id}/edit`} > Edit Review</a></u>
-        destroy = <u onClick={this.props.handleDeleteReview}> Delete Review</u>
+        edit = <div className="button">
+                 <a href={`/items/${this.props.itemId}/reviews/${this.props.id}/edit`} >Edit Review</a>
+               </div>
+        destroy = <div className="button" onClick={this.props.handleDeleteReview}>Delete Review</div>
       }
     }
     return(
       <div>
         <p>{this.props.rating}/5 - {this.props.user.username}</p>
         {body}
-        <p>
+        <div>
           {this.props.score}
           {like}
           {dislike}
           {edit}
           {destroy}
-        </p>
+        </div>
       </div>
     )
   }

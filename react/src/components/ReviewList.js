@@ -17,11 +17,10 @@ class ReviewList extends Component {
   handleVote(action, review) {
     let data = {
       review_id: review.id,
-      current_user_id: this.state.currentUser
     }
     let jsonStringData = JSON.stringify(data);
-
     fetch(`/api/v1/reviews/${review.id}/${action}`, {
+      credentials: 'same-origin',
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: jsonStringData
