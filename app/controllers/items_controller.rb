@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @reviews = @item.reviews
+    @user_can_review = !current_user.nil?
 
     @user_can_change = false
     unless current_user.nil?

@@ -18,7 +18,7 @@ feature "User edits an existing item" do
 
     visit items_path
     click_link 'Pokemon'
-    click_link 'Edit'
+    click_link 'Edit Item'
   end
 
 
@@ -34,7 +34,7 @@ feature "User edits an existing item" do
   scenario "Edits item successfully" do
     visit items_path
     click_link 'Pokemon'
-    click_link 'Edit'
+    click_link 'Edit Item'
 
     fill_in "Title", with: "Pokemon Red & Blue"
     click_button "Update Item"

@@ -26,8 +26,8 @@ feature "User authorization" do
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
-    expect(page).to have_link "Edit"
-    expect(page).to have_link "Delete"
+    expect(page).to have_link "Edit Item"
+    expect(page).to have_link "Delete Item"
   end
   scenario "user navigates to an item's show page they don't own" do
     item = Item.second
@@ -37,17 +37,17 @@ feature "User authorization" do
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
-    expect(page).to_not have_link "Edit"
-    expect(page).to_not have_link "Delete"
+    expect(page).to_not have_link "Edit Item"
+    expect(page).to_not have_link "Delete Item"
   end
   scenario "user navigates to an item's edit page they own" do
     item = Item.first
 
     visit root_path
     click_link item.title
-    click_link "Edit"
+    click_link "Edit Item"
 
-    expect(page).to have_link "Delete"
+    expect(page).to have_link "Delete Item"
     expect(page).to have_button "Update Item"
   end
 end
