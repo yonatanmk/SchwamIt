@@ -1,5 +1,6 @@
 <h1 class="item-title" id=<%= @item.id.to_s %>><%= @item.title %></h1>
-<p>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
+<% current_user_react = (!current_user.nil? ? current_user.id : "") %>
+<p class="user-id" id=<%= current_user_react.to_s %>>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
 
 <p><%= @item.description %></p>
 
@@ -13,22 +14,5 @@
   <% end %>
   <u><%= link_to "Back", items_path %></u>
 </p>
-
-<% @reviews.each do |review| %>
-  <div class="review">
-    <%= review.rating %>/5 - <%= review.user.username %>
-    <% if !review.body.nil? %>
-      <li><%= review.body %></li>
-    <% end %>
-    <%= review.score %>
-    <% if !current_user.nil? %>
-      <u><%= link_to "Like", item_review_up_vote_path(@item.id, review.id), method: :post %></u>
-      <u><%= link_to "Dislike", item_review_down_vote_path(@item.id, review.id), method: :post %></u>
-      <% if current_user == review.user || current_user.role == "admin" %>
-        <u><%= link_to 'Edit Review', edit_item_review_path(@item, review) %></u> <u><%= link_to 'Delete Review', [@item, review], method: :delete, data: { confirm: "Are you sure?" } %></u>
-      <% end %>
-    <% end %>
-  </div>
-<%end%>
 
 <div id="ReviewList"></div>
