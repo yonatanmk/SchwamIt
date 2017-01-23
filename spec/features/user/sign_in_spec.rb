@@ -58,7 +58,6 @@ feature 'Sign in' do
     expect(page).to_not have_content("Sign In")
 
     visit new_user_session_path
-    save_and_open_page
     expect(page).to have_content("You are already signed in dawg.")
   end
 

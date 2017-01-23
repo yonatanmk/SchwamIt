@@ -31,15 +31,17 @@ feature "User edits an existing item" do
     expect(find_field("Description").value).to eq "Gotta Catch 'Em All"
   end
 
-  scenario "Edits item successfully" do
+  scenario "Edits item successfully (with new image)" do
     visit items_path
     click_link 'Pokemon'
     click_link 'Edit Item'
 
     fill_in "Title", with: "Pokemon Red & Blue"
+    attach_file :item_image, "#{Rails.root}/spec/support/images/test1.jpg"
     click_button "Update Item"
     expect(page).to have_content "Pokemon Red & Blue"
     expect(page).to have_content "You edited a Thing"
+    expect(page).to have_css("img[src*='test1.jpg']")
     expect(page).to have_current_path(item_path(Item.first))
   end
 

@@ -63,4 +63,19 @@ feature 'Sign Up' do
     expect(page).to have_content("Password Is Too Short (6 Characters Minimum)")
     expect(page).to_not have_content("Sign Out")
   end
+
+  scenario "user uploads a profile photo" do
+    visit root_path
+    click_link 'Sign Up'
+
+    fill_in 'Username', with: 'birdman2'
+    fill_in 'Electronic Mail', with: 'birdie2@gmail.com'
+    attach_file :profile_photo, "#{Rails.root}/spec/support/images/test1.jpg"
+    fill_in 'user_password', with: 'password2'
+    fill_in 'Confirm Password', with: 'password2'
+    click_button 'Sign Up'
+
+    expect(page).to have_content("Whassup Dawg! You Have Successfully Signed In.")
+    expect(page).to have_css("img[src*='test1.jpg']")
+  end
 end
