@@ -50,6 +50,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cliver (0.3.2)
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
     coveralls (0.8.17)
@@ -107,6 +108,10 @@ GEM
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.19.0)
+    poltergeist (1.12.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -239,6 +244,7 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   pg (~> 0.18)
+  poltergeist
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.0)

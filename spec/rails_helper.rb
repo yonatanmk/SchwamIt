@@ -56,6 +56,9 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 require "capybara/rails"
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
 require "valid_attribute"
 
 RSpec.configure do |config|

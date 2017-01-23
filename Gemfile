@@ -19,6 +19,7 @@ end
 
 group :development, :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'warden-rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
