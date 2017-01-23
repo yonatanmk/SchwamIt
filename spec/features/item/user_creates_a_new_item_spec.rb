@@ -51,4 +51,18 @@ feature "user creates a new item" do
     expect(page).to have_content "Description can't be blank"
     expect(page).to have_content "Title can't be blank"
   end
+
+  scenario "User creates an item with an image" do
+    visit new_item_path
+    fill_in "Title", with: "Skip-It"
+    fill_in "Description", with: "Easiest way to break your shins as a kid"
+    attach_file :item_image, "#{Rails.root}/spec/support/images/test1.jpg"
+    click_button "Create Item"
+
+    expect(page).to have_content "You made a Thing"
+    expect(page).to have_content "Skip-It"
+    expect(page).to have_content "Easiest way to break your shins as a kid"
+    expect(page).to have_css("img[src*='test1.jpg']")
+    expect(page).to have_link "Back"
+  end
 end

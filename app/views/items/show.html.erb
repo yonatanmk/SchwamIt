@@ -1,6 +1,8 @@
 <h1><%= @item.title %></h1>
 <p>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
 
+<img src="<%= @item.image %>" alt="no image">
+
 <p><%= @item.description %></p>
 
 <p>
