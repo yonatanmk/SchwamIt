@@ -3,7 +3,6 @@ class Api::V1::VotesController < ApplicationController
   before_action :load_review_and_vote
 
   def up_vote
-    binding.pry
     update_vote!(1)
   end
 

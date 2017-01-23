@@ -1,6 +1,5 @@
 <h1 class="item-title" id=<%= @item.id.to_s %>><%= @item.title %></h1>
-<% current_user_react = (!current_user.nil? ? current_user.id : "") %>
-<p class="user-id" id=<%= current_user_react.to_s %>>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
+<p>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
 
 <p><%= @item.description %></p>
 

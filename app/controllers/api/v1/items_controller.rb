@@ -5,7 +5,8 @@ class Api::V1::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @reviews = @item.reviews
     @users = []
+    @current_user = current_user
     @reviews.each { |review| @users << review.user }
-    render json: { reviews: @reviews, users: @users }
+    render json: { reviews: @reviews, users: @users, currentUser: @current_user }
   end
 end

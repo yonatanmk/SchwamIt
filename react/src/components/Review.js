@@ -16,13 +16,13 @@ class Review extends Component {
     if (this.props.body) {
       body = <p>{this.props.body}</p>
     }
-    if (this.props.currentUserId) {
+    if (this.props.currentUser) {
       like = <u onClick={this.props.handleUpVote}> Like</u>
       dislike = <u onClick={this.props.handleDownVote}> Dislike</u>
-    }
-    if (this.props.currentUserId === this.props.user.id) {
-      edit = <u><a href={`/items/${this.props.itemId}/reviews/${this.props.id}/edit`} > Edit Review</a></u>
-      destroy = <u onClick={this.props.handleDeleteReview}> Delete Review</u>
+      if (this.props.currentUser.id === this.props.user.id) {
+        edit = <u><a href={`/items/${this.props.itemId}/reviews/${this.props.id}/edit`} > Edit Review</a></u>
+        destroy = <u onClick={this.props.handleDeleteReview}> Delete Review</u>
+      }
     }
     return(
       <div>

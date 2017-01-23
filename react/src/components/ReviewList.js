@@ -5,7 +5,7 @@ class ReviewList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentUserId: null,
+      currentUser: null,
       reviews: [],
       users: [],
       itemId: null
@@ -17,7 +17,7 @@ class ReviewList extends Component {
   handleVote(action, review) {
     let data = {
       review_id: review.id,
-      current_user_id: this.state.currentUserId
+      current_user_id: this.state.currentUser
     }
     let jsonStringData = JSON.stringify(data);
 
@@ -98,12 +98,10 @@ class ReviewList extends Component {
 
   componentDidMount() {
     let newItemId = parseInt($('.item-title').first().attr("id"));
-    let newCurrentUserId = null;
-    if (!($('.user-id').first().attr("id") == "")) {
-      newCurrentUserId = parseInt($('.user-id').first().attr("id"));
-    }
 
-    fetch(`/api/v1/items/${newItemId}.json`)
+    fetch(`/api/v1/items/${newItemId}.json`, {
+      credentials: 'same-origin'
+    })
       .then(response => {
         if (response.ok) {
           return response;
@@ -115,10 +113,11 @@ class ReviewList extends Component {
       })
       .then(response => response.json())
       .then(body => {
+        let newCurrentUser = body.currentUser
         let newReviews = body.reviews;
         let newUsers = body.users;
         this.setState({
-          currentUserId: newCurrentUserId,
+          currentUser: newCurrentUser,
           reviews: newReviews,
           users: newUsers,
           itemId: newItemId
@@ -160,7 +159,7 @@ class ReviewList extends Component {
           handleUpVote = { handleUpVote }
           handleDownVote = { handleDownVote }
           handleDeleteReview = { handleDeleteReview }
-          currentUserId = { this.state.currentUserId }
+          currentUser = { this.state.currentUser }
           itemId = { this.state.itemId }
         />
       )
