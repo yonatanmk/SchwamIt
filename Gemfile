@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem "carrierwave"
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+gem 'fog'
 
 group :development do
   gem 'listen', '~> 3.0.5'
