@@ -12,36 +12,42 @@ feature 'Like and Dislike' do
   end
 
   scenario 'user Likes a post first time' do
-    click_link "Like"
+    review = Review.first
+    find_by_id("like-#{review.id}").trigger('click')
 
     expect(find(".review")).to have_content "1"
   end
   scenario 'user Likes a post twice' do
-    click_link "Like"
-    click_link "Like"
+    review = Review.first
+    find_by_id("like-#{review.id}").trigger('click')
+    find_by_id("like-#{review.id}").trigger('click')
 
     expect(find(".review")).to have_content "0"
   end
   scenario 'user Dislikes a post first time' do
-    click_link "Dislike"
+    review = Review.first
+    find_by_id("dislike-#{review.id}").trigger('click')
 
     expect(find(".review")).to have_content "-1"
   end
   scenario 'user Dislikes a post twice' do
-    click_link "Dislike"
-    click_link "Dislike"
+    review = Review.first
+    find_by_id("dislike-#{review.id}").trigger('click')
+    find_by_id("dislike-#{review.id}").trigger('click')
 
     expect(find(".review")).to have_content "0"
   end
   scenario 'user Dislikes a post, then Likes it' do
-    click_link "Dislike"
-    click_link "Like"
+    review = Review.first
+    find_by_id("dislike-#{review.id}").trigger('click')
+    find_by_id("like-#{review.id}").trigger('click')
 
     expect(find(".review")).to have_content "1"
   end
   scenario 'user Likes a post, then Dislikes it' do
-    click_link "Like"
-    click_link "Dislike"
+    review = Review.first
+    find_by_id("like-#{review.id}").trigger('click')
+    find_by_id("dislike-#{review.id}").trigger('click')
 
     expect(find(".review")).to have_content "-1"
   end

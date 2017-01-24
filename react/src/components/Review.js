@@ -17,17 +17,36 @@ class Review extends Component {
       body = <p>{this.props.body}</p>
     }
     if (this.props.currentUser) {
-      like = <div className="button success" onClick={this.props.handleUpVote}>
-              <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+      like =  <div
+                className="button success"
+                onClick={this.props.handleUpVote}
+                id={`like-${this.props.id}`}
+              >
+                <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
              </div>
-      dislike = <div className="button alert" onClick={this.props.handleDownVote}>
+      dislike = <div
+                  className="button alert"
+                  onClick={this.props.handleDownVote}
+                  id={`dislike-${this.props.id}`}
+                >
                   <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
                 </div>
       if (this.props.currentUser.id === this.props.user.id) {
-        edit = <div className="button">
-                 <a href={`/items/${this.props.itemId}/reviews/${this.props.id}/edit`} >Edit Review</a>
+        edit =  <div
+                  className="button"
+                  id={`edit-${this.props.id}`}
+                >
+                  <a href={`/items/${this.props.itemId}/reviews/${this.props.id}/edit`}>
+                    Edit Review
+                  </a>
                </div>
-        destroy = <div className="button" onClick={this.props.handleDeleteReview}>Delete Review</div>
+        destroy = <div
+                    className="button"
+                    onClick={this.props.handleDeleteReview}
+                    id={`destroy-${this.props.id}`}
+                  >
+                    Delete Review
+                  </div>
       }
     }
     return(
