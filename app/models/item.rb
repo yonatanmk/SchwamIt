@@ -6,4 +6,9 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_many :reviews
+
+  def self.search(query)
+    where("title ilike ?", "%#{query}%")
+  end
+
 end
