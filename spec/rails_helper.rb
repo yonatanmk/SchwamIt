@@ -65,16 +65,6 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :feature
 
   config.before :each do
-    if Capybara.current_driver == :rack_test
-      DatabaseCleaner.strategy = :transaction
-    else
-      DatabaseCleaner.strategy = :truncation
-    end
-    DatabaseCleaner.start
+    ActionMailer::Base.deliveries.clear
   end
-
-  config.after do
-    DatabaseCleaner.clean
-  end
-
 end
