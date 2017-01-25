@@ -19,7 +19,7 @@
       </ul>
       <% if user_signed_in? %>
       <div class="right">
-        <img class='profile_photo' src=<%= current_user.profile_photo.thumb %> alt="">
+        <img class='profile_photo' src="<%= current_user.profile_photo.thumb %>" alt="">
       </div>
       <% end %>
       <ul class="right">
@@ -41,7 +41,7 @@
       <% end %>
     </div>
 
-    <div class='content'>
+    <div class='content glass'>
       <%= yield %>
     </div>
   </body>

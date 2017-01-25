@@ -31,6 +31,7 @@ class ReviewsController < ApplicationController
     @review.item = @item
 
     if @review.save
+      UserMailer.review_email(@item.user, @item).deliver_now
       flash[:notice] = "You reviewed a Thing"
       redirect_to @item
     else
