@@ -3,7 +3,7 @@ class Api::V1::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @reviews = @item.reviews
+    @reviews = @item.reviews.order("score DESC")
     @users = []
     @current_user = current_user
     @reviews.each { |review| @users << review.user }
