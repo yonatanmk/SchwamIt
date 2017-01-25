@@ -14,6 +14,7 @@ feature "user visits show page" do
 
     click_link 'Pokemon'
 
+    save_and_open_page
     expect(page).to have_content 'Gotta Catch \'Em All'
     expect(page).to have_content '2017'
     expect(page).to have_content 'Back'
