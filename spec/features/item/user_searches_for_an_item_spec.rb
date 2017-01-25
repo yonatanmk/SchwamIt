@@ -1,9 +1,8 @@
 require "rails_helper"
 
 feature "user visits index page" do
-  user = FactoryGirl.create(:user)
-  10.times { FactoryGirl.create(:item, user: user) }
-  FactoryGirl.create(:item, title: "Dragonball Z", user: user)
+  10.times { FactoryGirl.create(:item) }
+  FactoryGirl.create(:item, title: "Dragonball Z")
 
   before(:each) do
     visit items_path
