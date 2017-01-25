@@ -42,7 +42,6 @@ feature "User edits an existing item" do
     expect(page).to have_content "Pokemon Red & Blue"
     expect(page).to have_content "You edited a Thing"
     expect(page).to have_css("img[src*='test1.jpg']")
-    save_and_open_page
     expect(page).to have_current_path(item_path(Item.first))
   end
 
