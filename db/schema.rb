@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 20170125150044) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "user_id",                null: false
-    t.integer  "review_id",              null: false
-    t.integer  "value",      default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id",    null: false
+    t.integer  "review_id",  null: false
+    t.integer  "value",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_votes_on_review_id", using: :btree
     t.index ["user_id"], name: "index_votes_on_user_id", using: :btree
   end
