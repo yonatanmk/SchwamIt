@@ -77,16 +77,21 @@ describe('ReviewList', () => {
 
   describe('handleVote', () => {
     beforeEach(() => {
-      wrapper.setState({
-        currentUser: currentUser,
-        reviews: reviews,
-        users: users,
-        itemId: item.id
-      });
-    });
-    it('should be invoked when the Like button is pushed', () => {
       setTimeout(() => {
-        expect(true).toEqual(false);
+        wrapper.setState({
+          currentUser: currentUser,
+          reviews: reviews,
+          users: users,
+          itemId: item.id
+        });
+      },0)
+    });
+    it('should be invoked when the Like button is pushed', done => {
+      setTimeout(() => {
+        console.log(wrapper.state().reviews)
+        let pagaraph = wrapper.find({id: "like-2"})
+        console.log(paragraph)
+        // expect(wrapper.find('p')).to.have.length(3);
         done();
       }, 0);
     })
