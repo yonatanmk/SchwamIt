@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   before_action :visitor?, except: [:index, :show]
 
   def index
-    @items = Item.all
+    if params[:search]
+      @query = params[:search]
+      @items = Item.search(@query).order("created_at DESC")
+    else
+      @items = Item.all.order("created_at DESC")
+    end
     @user_can_create = !current_user.nil?
   end
 
