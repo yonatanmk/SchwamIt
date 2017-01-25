@@ -5,6 +5,10 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
+  config.after(:suite) do
+    DatabaseCleaner.clean_with(:deletion)
+  end
+
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
