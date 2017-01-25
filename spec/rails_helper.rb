@@ -62,4 +62,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers
   config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.before :each do
+    ActionMailer::Base.deliveries.clear
+  end
 end

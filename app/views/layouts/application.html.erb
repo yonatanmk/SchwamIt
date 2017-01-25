@@ -3,7 +3,6 @@
   <head>
     <title>Schwamit</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -19,8 +18,9 @@
       </ul>
       <% if user_signed_in? %>
       <div class="right">
-        <img class='profile_photo' src=<%= current_user.profile_photo.thumb %> alt="">
+        <img class='profile_photo' src="<%= current_user.profile_photo.thumb %>" alt="">
       </div>
+
       <% end %>
       <ul class="right">
         <% if user_signed_in? %>
@@ -32,8 +32,8 @@
           <li class='right-item'> <%= link_to 'Sign In', new_user_session_path %> </li>
         <% end %>
       </ul>
-
     </nav>
+
     <div class='error-msg'>
       <% flash.each do |name, msg| %>
         <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
@@ -41,7 +41,7 @@
       <% end %>
     </div>
 
-    <div class='content'>
+    <div class='content glass'>
       <%= yield %>
     </div>
   </body>
