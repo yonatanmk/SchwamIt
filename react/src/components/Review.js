@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class Review extends Component {
   constructor(props) {
-    super(props)
-    this.state = {}
+    super(props);
+    this.state = {};
   }
 
   render() {
@@ -14,54 +14,70 @@ class Review extends Component {
     let destroy = null;
 
     if (this.props.body) {
-      body = <p>{this.props.body}</p>
+      body = <p>{this.props.body}</p>;
     }
     if (this.props.currentUser) {
       like =  <div
-                className="button success"
+                className="button upvote review-button"
                 onClick={this.props.handleUpVote}
                 id={`like-${this.props.id}`}
               >
                 <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
-             </div>
+             </div>;
       dislike = <div
-                  className="button alert"
+                  className="button downvote review-button"
                   onClick={this.props.handleDownVote}
                   id={`dislike-${this.props.id}`}
                 >
                   <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
-                </div>
+                </div>;
       if (this.props.currentUser.id === this.props.user.id) {
         edit =  <div
-                  className="button"
+                  className="button edit-review review-button"
                   id={`edit-${this.props.id}`}
                 >
                   <a href={`/items/${this.props.itemId}/reviews/${this.props.id}/edit`}>
                     Edit Review
                   </a>
-               </div>
+               </div>;
         destroy = <div
-                    className="button"
+                    className="button delete-review review-button"
                     onClick={this.props.handleDeleteReview}
                     id={`destroy-${this.props.id}`}
                   >
                     Delete Review
-                  </div>
+                  </div>;
       }
     }
+
+    let scoreClass="voteBox "
+    if (this.props.score > 0) {
+      scoreClass+="goodScore"
+    } else if (this.props.score < 0) {
+      scoreClass+="badScore"
+    }
+    else {
+      scoreClass+="neutralScore"
+    }
+
     return(
-      <div>
-        <p>{this.props.rating}/5 - {this.props.user.username}</p>
-        {body}
+      <div className='review-box'>
         <div>
-          {this.props.score}
-          {like}
-          {dislike}
-          {edit}
-          {destroy}
+          <h4>Review By {this.props.user.username}</h4>
+          <div className={scoreClass}>
+            <h5 className='score-text'>Score: {this.props.score}</h5>
+          </div>
+          <h5>Rating: {this.props.rating}/5</h5>
+          {body}
+          <div className='review-buttons'>
+            {like}
+            {dislike}
+            {edit}
+            {destroy}
+          </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -21,4 +21,6 @@
   <% if @user_can_change %>
     <%= link_to 'Delete Item', @item, method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
+  <%= link_to "Back", @item %>
 </div>
+
