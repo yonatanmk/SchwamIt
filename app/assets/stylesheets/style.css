@@ -134,6 +134,11 @@ h1 {
 .index-item-image-box {
   height: 110px;
   margin: auto;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0D1B2A;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .review-button {
@@ -187,6 +192,7 @@ h1 {
   padding: 5px 10px 5px 10px;
   display: inline-block;
   margin-bottom: 10px;
+  float: right;
 }
 
 .goodScore {
@@ -232,4 +238,16 @@ h1 {
 
 .submission-date {
   margin-top: 20px;
+}
+
+.review-profile {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0D1B2A;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.user-line {
+  display:inline-block;
 }
