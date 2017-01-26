@@ -53,7 +53,7 @@ class Review extends Component {
       <div>
         <p>{this.props.rating}/5 - {this.props.user.username}</p>
         {body}
-        <div>
+        <div id={`review-${this.props.id}-options`}>
           {this.props.score}
           {like}
           {dislike}

@@ -10,6 +10,7 @@ import clickSubmit       from './support/clickSubmit';
 import clickButton       from './support/clickButton';
 import select            from './support/select';
 import clickOn           from './support/clickOn';
+import $ from 'jquery';
 
 Object.assign(global, {
   createNoContentResponse,
@@ -23,7 +24,8 @@ Object.assign(global, {
   clickSubmit,
   clickButton,
   select,
-  clickOn
+  clickOn,
+  $
 });
 
 beforeEach(() => {

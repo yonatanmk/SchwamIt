@@ -1,9 +1,7 @@
 import simulateIfPresent from './simulateIfPresent';
 
-let clickButton = (buttonText, wrapper) => {
-  let button = wrapper.findWhere(n => {
-    return n.type() === 'button' && n.text() === buttonText;
-  });
+let clickButton = (buttonId, wrapper) => {
+  let button = wrapper.find(`#${buttonId}`);
   simulateIfPresent(button, 'click', { button: 0 });
 }
 
