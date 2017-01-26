@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   def review_email(user, item)
     @user = user
     @item = item
-    @url  = "http://localhost:3000/items/#{@item.id}"
+    @url  = "http://schwamit.herokuapps.com/items/#{@item.id}"
     mail(
       to: @user.email,
       subject: "#{@item.title} has been reviewed."
