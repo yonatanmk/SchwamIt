@@ -128,12 +128,30 @@ h1 {
   background-color: #EB6564;
 }
 
+.upvote:hover{
+  background: rgb(113,153,126);
+}
+
+.downvote:hover{
+  background: rgb(193,83,83);
+}
+
 .edit-review {
   background-color: #EDDB7F;
+  text-color: black;
+}
+
+.edit-review:hover{
+  background-color: rgb(201,186,108);
+  link {color: #000000 }
 }
 
 .delete-review {
   background-color: #496B87;
+}
+
+.delete-review:hover {
+  background-color: rgb(53,78,99);
 }
 
 .review-box {

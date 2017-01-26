@@ -7,6 +7,7 @@ class Review extends Component {
   }
 
   render() {
+    debugger;
     let body = null;
     let like = null;
     let dislike = null;
