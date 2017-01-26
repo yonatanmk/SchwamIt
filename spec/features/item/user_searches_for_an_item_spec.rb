@@ -28,7 +28,7 @@ feature "user visits index page" do
     expect(page).to_not have_content "Pokemon"
   end
 
-  scenario "user searches for a query with no results" do
+  xscenario "user searches for a query with no results" do
     fill_in "search", with: "Power Rangers"
     click_button "Search"
 
