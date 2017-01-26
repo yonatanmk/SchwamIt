@@ -76,7 +76,6 @@ h1 {
   width: 900px;
   margin: auto;
   margin-top: 50px;
-  /*background-color: white;*/
   background: rgba(255, 255, 255, .7);
   border-radius: 50px;
   padding: 50px;
@@ -91,10 +90,15 @@ h1 {
 }
 
 .error-msg {
-  color: #F9A785;
   width: 900px;
+  color: #EB6564;
   margin: auto;
   font-family: 'Bevan', cursive;
+  margin: auto;
+  margin-top: 50px;
+  background: rgba(46, 44, 45, .7);
+  border-radius: 50px;
+  padding: 30px 50px 30px 50px;
 }
 
 .profile_photo {
