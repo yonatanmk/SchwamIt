@@ -7,7 +7,6 @@ class Review extends Component {
   }
 
   render() {
-    debugger;
     let body = null;
     let like = null;
     let dislike = null;
@@ -64,7 +63,7 @@ class Review extends Component {
     return(
       <div className='review-box'>
         <div>
-            <h4>Review by <img src={this.props.user.profile_photo.thumb.url}/> {this.props.user.username} </h4> 
+            <h4>Review by <img src={this.props.user.profile_photo.thumb.url}/> {this.props.user.username} </h4>
           <div className={scoreClass}>
             <h5 className='score-text'>Score: {this.props.score}</h5>
           </div>
