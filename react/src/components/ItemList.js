@@ -13,12 +13,11 @@ class ItemList extends Component {
 
   componentDidMount() {
     this.getItems();
-    setInterval(this.getItems, 500);
+    setInterval(this.getItems, 3000);
   }
 
   getItems () {
-    let query = this.props.query;
-    fetch(`/api/v1/items?query=${query}`, {
+    fetch(`/api/v1/items`, {
       credentials: 'same-origin',
     })
       .then(response => {
@@ -42,7 +41,8 @@ class ItemList extends Component {
   render() {
     let items = '';
     if (this.state.items) {
-      items = this.state.items.map((item) => {
+      items = this.state.items.filter((item)=>{return item.title.toLowerCase().search(this.props.query.toLowerCase()) > -1; });
+      items = items.map((item) => {
         let className = 'small-2 large-4 column list-item-box';
         if (item == this.state.items[this.state.items.length - 1]) {
           className += ' end';
