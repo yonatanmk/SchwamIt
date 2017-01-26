@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user creates a review for an item" do
+xfeature "user creates a review for an item" do
   before(:each) do
     user = FactoryGirl.create(:user)
     sign_in user

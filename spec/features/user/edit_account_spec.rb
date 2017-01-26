@@ -3,13 +3,9 @@ require "rails_helper"
 feature "user edits their account" do
 
   before(:each) do
+    @user = FactoryGirl.create(:user)
+    sign_in @user
     visit root_path
-    click_link 'Sign Up'
-    fill_in 'Username', with: 'birdman'
-    fill_in 'Electronic Mail', with: 'birdie@gmail.com'
-    fill_in 'user_password', with: 'password'
-    fill_in 'Confirm Password', with: 'password'
-    click_button 'Sign Up'
     click_link 'Account Settings'
   end
 
@@ -22,7 +18,7 @@ feature "user edits their account" do
     fill_in "Electronic Mail", with: "fishman@gmail.com"
     fill_in "New Password", with: "fishman"
     fill_in "New Password Confirmation", with: "fishman"
-    fill_in "Current password", with: 'password'
+    fill_in "Current password", with: @user.password
     click_button "Update"
 
 

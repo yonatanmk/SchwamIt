@@ -7,4 +7,9 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :item
   has_many :votes
+
+  def update_score!
+    update(score: votes.sum(:value))
+  end
+
 end
