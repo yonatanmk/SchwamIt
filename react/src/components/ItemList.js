@@ -13,12 +13,18 @@ class ItemList extends Component {
 
   componentDidMount() {
     this.getItems();
-    setInterval(this.getItems, 3000);
+    setInterval(this.getItems, 500);
   }
 
   getItems () {
-    fetch(`/api/v1/items`, {
-      credentials: 'same-origin'
+    let query = this.props.query;
+    // let data = {
+    //   query
+    // };
+    // let jsonStringData = JSON.stringify(data);
+    fetch(`/api/v1/items?query=${query}`, {
+      credentials: 'same-origin',
+      // body: jsonStringData
     })
       .then(response => {
         if (response.ok) {
