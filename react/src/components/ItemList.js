@@ -41,8 +41,12 @@ class ItemList extends Component {
     let items = '';
     if (this.state.items) {
       items = this.state.items.map((item) => {
+        let className = 'small-2 large-4 column list-item-box';
+        if (item == this.state.items[this.state.items.length - 1]) {
+          className += ' end';
+        }
         return (
-          <div key={item.id} className='small-2 large-4 column list-item-box'>
+          <div key={item.id} className={className}>
             <a href={`/items/${item.id}`}>
               <div className='list-item-content'>
                 <p><b>{item.title}</b></p>
