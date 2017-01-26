@@ -139,3 +139,23 @@ h1 {
 .review-buttons {
   margin-top: 20px;
 }
+
+.item-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.review-image {
+  margin-bottom: 20px;
+  margin: auto;
+  display: block;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #0D1B2A;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.submission-date {
+  margin-top: 20px;
+}
