@@ -7,7 +7,8 @@ class Api::V1::ItemsController < ApplicationController
     else
       @items = Item.search(params[:query]).order("created_at DESC")
     end
-    render json: {items: @items}
+    @signed_in = !current_user.nil?
+    render json: {items: @items, signedIn: @signed_in}
   end
 
   def show

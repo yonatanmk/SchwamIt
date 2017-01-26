@@ -18,13 +18,8 @@ class ItemList extends Component {
 
   getItems () {
     let query = this.props.query;
-    // let data = {
-    //   query
-    // };
-    // let jsonStringData = JSON.stringify(data);
     fetch(`/api/v1/items?query=${query}`, {
       credentials: 'same-origin',
-      // body: jsonStringData
     })
       .then(response => {
         if (response.ok) {
@@ -37,6 +32,7 @@ class ItemList extends Component {
       })
       .then(response => response.json())
       .then(body => {
+        this.props.setSignedIn(body.signedIn);
         this.setState({
           items: body.items
         });
