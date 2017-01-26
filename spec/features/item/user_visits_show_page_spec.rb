@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "user visits show page" do
-  scenario "user can get to and from show page from index" do
+  xscenario "user can get to and from show page from index" do
 
     date = DateTime.new(1995, 3, 4)
     user = User.create(username: 'stevesteve', email: 'steve@gmail.com', encrypted_password: 'rgtsahhtjhertrhaetshartn', created_at: date, updated_at: date)
