@@ -16,8 +16,7 @@ feature "User edits an existing item" do
     fill_in "Description", with: "Gotta Catch 'Em All"
     click_button "Create Item"
 
-    visit items_path
-    click_link 'Pokemon'
+    visit "/items/#{Item.last.id}"
     click_link 'Edit Item'
   end
 
@@ -32,9 +31,6 @@ feature "User edits an existing item" do
   end
 
   scenario "Edits item successfully (with new image)" do
-    visit items_path
-    click_link 'Pokemon'
-    click_link 'Edit Item'
 
     fill_in "Title", with: "Pokemon Red & Blue"
     attach_file :item_image, "#{Rails.root}/spec/support/images/test1.jpg"

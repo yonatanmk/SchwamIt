@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Item.create!(title: 'Power Rangers', description: 'Go Go Power Rangers! WEOSWWWEAHHWOOAWOAHWOAH')
-Item.create!(title: 'Magic School Bus', description: 'Ms. Frizzle taught us science')
-Item.create!(title: 'Fall of the Soviet Union', description: 'A victory for capitalism and the free world')
+user = User.create!(username: 'steevwgrhet', email: 'efsg@egsrhdrb.com', password: 'afsdvey')
+
+Item.create!(title: 'Power Rangers', description: 'Go Go Power Rangers! WEOSWWWEAHHWOOAWOAHWOAH', user: user)
+Item.create!(title: 'Magic School Bus', description: 'Ms. Frizzle taught us science', user: user)
+Item.create!(title: 'Fall of the Soviet Union', description: 'A victory for capitalism and the free world', user: user)
