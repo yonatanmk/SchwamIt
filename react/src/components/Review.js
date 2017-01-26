@@ -63,10 +63,10 @@ class Review extends Component {
     return(
       <div className='review-box'>
         <div>
-            <h4>Review by <img src={this.props.user.profile_photo.thumb.url}/> {this.props.user.username} </h4>
           <div className={scoreClass}>
             <h5 className='score-text'>Score: {this.props.score}</h5>
           </div>
+          <h4> <img className='review-profile' src={this.props.user.profile_photo.thumb.url}/> Review by {this.props.user.username} </h4>
           <h5>Rating: {this.props.rating}/5</h5>
           {body}
           <div className='review-buttons'>
