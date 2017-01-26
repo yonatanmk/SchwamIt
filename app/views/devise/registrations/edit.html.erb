@@ -1,27 +1,29 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class='content-box'>
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :username, label: 'Username', required: true %>
-    <%= f.input :email, label: 'Electronic Mail', required: true, autofocus: true %>
-    <%= f.input :profile_photo, type: :file %>
+    <div class="form-inputs">
+      <%= f.input :username, label: 'Username', required: true %>
+      <%= f.input :email, label: 'Electronic Mail', required: true, autofocus: true %>
+      <%= f.input :profile_photo, type: :file %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-    <p>Leave Blank If You Don't Want To Change Your Password</p>
-    <%= f.input :password, label: 'New Password', autocomplete: "off", required: false %>
-    <%= f.input :password_confirmation, label: 'New Password Confirmation', required: false %>
-    <%= f.input :current_password, required: true %>
-  </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+      <p>Leave Blank If You Don't Want To Change Your Password</p>
+      <%= f.input :password, label: 'New Password', autocomplete: "off", required: false %>
+      <%= f.input :password_confirmation, label: 'New Password Confirmation', required: false %>
+      <%= f.input :current_password, required: true %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Update" %>
+    </div>
+  <% end %>
 
-<p>Unhappy? <%= link_to "Cancel yo account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy? <%= link_to "Cancel yo account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>
+</div>

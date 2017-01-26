@@ -1,22 +1,24 @@
-<h1>Edit <%= @title %></h1>
+<div class='content-box'>
+  <h1>Edit <%= @title %></h1>
 
-<%= form_for(@item) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-  <div>
-    <%= f.file_field :image %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= form_for(@item) do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+    <div>
+      <%= f.file_field :image %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
 
-<% if @user_can_change %>
-  <%= link_to 'Delete Item', @item, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
+  <% if @user_can_change %>
+    <%= link_to 'Delete Item', @item, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+</div>

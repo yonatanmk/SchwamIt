@@ -9,7 +9,7 @@ feature "User authorization" do
     sign_in user
   end
 
-  scenario "user navigates to the index page" do
+  xscenario "user navigates to the index page" do
     item = Item.first
 
     visit root_path
@@ -21,8 +21,7 @@ feature "User authorization" do
   scenario "user navigates to an item's show page they own" do
     item = Item.first
 
-    visit root_path
-    click_link item.title
+    visit "/items/#{item.id}"
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
@@ -32,8 +31,7 @@ feature "User authorization" do
   scenario "user navigates to an item's show page they don't own" do
     item = Item.second
 
-    visit root_path
-    click_link item.title
+    visit "/items/#{item.id}"
 
     expect(page).to have_content item.title
     expect(page).to have_content item.description
@@ -43,8 +41,8 @@ feature "User authorization" do
   scenario "user navigates to an item's edit page they own" do
     item = Item.first
 
-    visit root_path
-    click_link item.title
+    visit "/items/#{item.id}"
+    
     click_link "Edit Item"
 
     expect(page).to have_link "Delete Item"

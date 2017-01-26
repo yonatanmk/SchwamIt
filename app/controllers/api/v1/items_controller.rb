@@ -1,6 +1,11 @@
 class Api::V1::ItemsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  def index
+    @items = Item.all
+    render json: {items: @items}
+  end
+
   def show
     @item = Item.find(params[:id])
     @reviews = @item.reviews.order("score DESC")
