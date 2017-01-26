@@ -9,6 +9,8 @@ feature "Admin views user list" do
     expect(page).to have_content "person"
   end
   scenario "Non-admin can not see user list" do
+    user = FactoryGirl.create(:user)
+    sign_in user
     visit users_path
     expect(page).to_not have_content "person"
   end
