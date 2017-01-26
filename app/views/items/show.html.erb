@@ -1,11 +1,9 @@
 <div class='content-box'>
   <h1 class="item-title" id=<%= @item.id.to_s %>><%= @item.title %></h1>
-  <p>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
-
 
   <img src="<%= @item.image.thumb %>" alt="no image" class='review-image'>
 
-  <p class='submission-date'>Submitted by <%= @item.user.username %>, on <%= @item.created_at.strftime("%B %d %Y") %>.</p>
+  <p class='submission-date'>Submitted by <%= @item.user.username %> on <%= @item.created_at.strftime("%B %d %Y") %>.</p>
   <p><%= @item.description %></p>
 
   <p>
