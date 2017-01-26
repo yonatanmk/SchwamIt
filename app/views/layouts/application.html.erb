@@ -34,14 +34,22 @@
       </ul>
     </nav>
 
-    <div class='error-msg'>
+    <div class='error-msgs'>
       <% flash.each do |name, msg| %>
-        <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+        <div class='error-msg'>
+          <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
+          <% if msg == "Rating can't be blank and Rating Rating must be between 1 - 5" %>
+            <% msg = "Rating can't be blank and Rating must be between 1 - 5"%>
+          <% end %>
+          <% if msg == "Rating Rating must be between 1 - 5" %>
+            <% msg = "Rating must be between 1 - 5"%>
+          <% end %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+        </div class='error'>
       <% end %>
     </div>
 
-    <div class='content glass'>
+    <div class='content'>
       <%= yield %>
     </div>
   </body>
