@@ -1,5 +1,5 @@
 class Api::V1::VotesController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   before_action :load_review_and_vote
 
   def up_vote
