@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User authorization for reviews" do
+xfeature "User authorization for reviews" do
   before(:each) do
     user = FactoryGirl.create(:user)
     admin = FactoryGirl.create(:user, role: "admin")

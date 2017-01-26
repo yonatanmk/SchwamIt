@@ -24,12 +24,12 @@
       <% end %>
       <ul class="right">
         <% if user_signed_in? %>
-          <li class='right-item nav-link'> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> </li>
-          <li class='right-item nav-link'> <%= link_to 'Account Settings', edit_user_registration_path %> </li>
+          <li class='right-item nav-link sign-out'> <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> </li>
+          <li class='right-item nav-link account-settings'> <%= link_to 'Account Settings', edit_user_registration_path %> </li>
 
         <% else %>
-          <li class='right-item'> <%= link_to 'Sign Up', new_user_registration_path %> </li>
-          <li class='right-item'> <%= link_to 'Sign In', new_user_session_path %> </li>
+          <li class='right-item sign-up'> <%= link_to 'Sign Up', new_user_registration_path %> </li>
+          <li class='right-item sign-in'> <%= link_to 'Sign In', new_user_session_path %> </li>
         <% end %>
       </ul>
     </nav>

@@ -4,9 +4,31 @@
 }
 
 .top-bar {
-  opacity: 0.9;
   background: rgba(46, 44, 45, .7);
-  /*background: rgba(107, 66, 127, .7);*/
+}
+
+.top-bar:hover {
+  background: rgba(46, 44, 45, .9);
+}
+
+.title-area *:hover {
+  color: #EB6564;
+}
+
+.sign-up *:hover {
+  color: #EDDB7F;
+}
+
+.sign-in *:hover {
+  color: #89BA99;
+}
+
+.sign-out *:hover {
+  color: #EDDB7F;
+}
+
+.account-settings *:hover {
+  color: #89BA99;
 }
 
 body {
@@ -58,6 +80,10 @@ h1 {
   background: rgba(255, 255, 255, .7);
   border-radius: 50px;
   padding: 50px;
+}
+
+.content:hover{
+  background: rgba(255, 255, 255, .75);
 }
 
 .content * {
