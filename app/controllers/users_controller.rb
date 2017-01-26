@@ -18,7 +18,9 @@ class UsersController < ApplicationController
   end
 
   def admin?
-    unless current_user.role == "admin"
+    if !user_signed_in?
+      raise ActionController::RoutingError.new("Not Found")
+    elsif current_user.role != "admin" 
       raise ActionController::RoutingError.new("Not Found")
     end
   end
