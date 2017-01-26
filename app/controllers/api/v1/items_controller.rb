@@ -1,5 +1,11 @@
 class Api::V1::ItemsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
+
+  def index
+    @items = Item.all.order("created_at DESC")
+    @signed_in = !current_user.nil?
+    render json: {items: @items, signedIn: @signed_in}
+  end
 
   def show
     @item = Item.find(params[:id])

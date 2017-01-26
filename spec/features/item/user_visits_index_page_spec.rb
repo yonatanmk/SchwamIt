@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user visits index page" do
+xfeature "user visits index page" do
   scenario "user can see list of nineties items" do
 
 

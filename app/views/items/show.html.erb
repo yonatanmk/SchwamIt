@@ -1,19 +1,22 @@
-<h1 class="item-title" id=<%= @item.id.to_s %>><%= @item.title %></h1>
-<p>Submitted on: <%= @item.created_at.strftime("%B %d %Y") %></p>
+<div class='content-box'>
+  <h1 class="item-title" id=<%= @item.id.to_s %>><%= @item.title %></h1>
 
-<img src="<%= @item.image %>" alt="no image">
+  <img src="<%= @item.image.thumb %>" alt="no image" class='review-image'>
 
-<p><%= @item.description %></p>
+  <p class='submission-date'>Submitted by <%= @item.user.username %> on <%= @item.created_at.strftime("%B %d %Y") %>.</p>
+  <p><%= @item.description %></p>
 
-<p>
-  <% if @user_can_change %>
-    <u><%= link_to "Edit Item", edit_item_path %></u>
-    <u><%= link_to 'Delete Item', @item, method: :delete, data: { confirm: "Are you sure?" } %></u>
-  <% end %>
-  <% if @user_can_review %>
-  <u><%= link_to "Add Review", new_item_review_path(@item) %></u>
-  <% end %>
-  <u><%= link_to "Back", items_path %></u>
-</p>
+  <p>
+    <% if @user_can_change %>
+      <u><%= link_to "Edit Item", edit_item_path %></u>
+      <u><%= link_to 'Delete Item', @item, method: :delete, data: { confirm: "Are you sure?" } %></u>
+    <% end %>
+    <% if @user_can_review %>
+    <u><%= link_to "Add Review", new_item_review_path(@item) %></u>
+    <% end %>
+  </p>
 
-<div id="ReviewList"></div>
+  <div id="ReviewList"></div>
+
+  <%= link_to "Back", items_path %>
+</div>

@@ -14,15 +14,14 @@ feature "User deletes an existing item" do
     fill_in "Title", with: "Pokemon"
     fill_in "Description", with: "Gotta Catch 'Em All"
     click_button "Create Item"
-
-    visit items_path
-    click_link 'Pokemon'
+    visit "/items/#{Item.last.id}"
   end
 
   scenario "users can choose to delete from the item's show page" do
-    expect(find_link('Delete').visible?).to eq true
-  end
 
+    expect(find_link('Delete').visible?).to eq true
+
+  end
   scenario "users can succesfully delete from the item's show page" do
     click_link 'Delete'
 

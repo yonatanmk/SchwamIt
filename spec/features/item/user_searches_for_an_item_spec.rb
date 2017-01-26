@@ -11,7 +11,7 @@ feature "user visits index page" do
     visit items_path
   end
 
-  scenario "user searches for a unique item" do
+  xscenario "user searches for a unique item" do
     fill_in "search", with: "Dragonball Z"
     click_button "Search"
 
@@ -19,7 +19,7 @@ feature "user visits index page" do
     expect(page).to have_content "Dragonball Z"
   end
 
-  scenario "user searches with a non-unique query" do
+  xscenario "user searches with a non-unique query" do
     fill_in "search", with: "Dragonball"
     click_button "Search"
 
@@ -28,7 +28,7 @@ feature "user visits index page" do
     expect(page).to_not have_content "Pokemon"
   end
 
-  scenario "user searches for a query with no results" do
+  xscenario "user searches for a query with no results" do
     fill_in "search", with: "Power Rangers"
     click_button "Search"
 
@@ -36,7 +36,7 @@ feature "user visits index page" do
     expect(page).to_not have_content "Dragonball"
   end
 
-  scenario "user does a case-insensitive search" do
+  xscenario "user does a case-insensitive search" do
     fill_in "search", with: "z"
     click_button "Search"
 

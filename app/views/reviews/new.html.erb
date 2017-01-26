@@ -1,3 +1,5 @@
-<h1>Submit a review for <%= @item.title %></h1>
-
-<%= render 'form' %>
+<div class='content-box'>
+  <h1>Submit a review for <%= @item.title %></h1>
+  <%= render 'form' %>
+  <%= link_to "Back", @item %>
+</div>

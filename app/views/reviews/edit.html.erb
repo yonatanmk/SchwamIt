@@ -1,5 +1,7 @@
-<h1>Edit Review</h1>
+<div class='content-box'>
+  <h1>Edit Review</h1>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Delete', [@review.item, @review], method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Delete', [@review.item, @review], method: :delete, data: { confirm: "Are you sure?" } %>
+</div>
