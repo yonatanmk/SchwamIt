@@ -31,6 +31,7 @@ class ItemList extends Component {
       })
       .then(response => response.json())
       .then(body => {
+        this.props.setSignedIn(body.signedIn);
         this.setState({
           items: body.items
         });

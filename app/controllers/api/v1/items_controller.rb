@@ -3,7 +3,8 @@ class Api::V1::ItemsController < ApplicationController
 
   def index
     @items = Item.all.order("created_at DESC")
-    render json: {items: @items}
+    @signed_in = !current_user.nil?
+    render json: {items: @items, signedIn: @signed_in}
   end
 
   def show
