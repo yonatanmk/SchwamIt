@@ -1,7 +1,10 @@
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.username %> - <%= user.email %> <%= link_to 'Delete', user, method: :delete, data: { confirm: "Are you sure?" } %>
-    </li>
-  <% end %>
-</ul>
+<div class="content-box">
+  <h1>Users</h1>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <%= user.username %> - <%= user.email %> <%= link_to 'Delete', user, method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
