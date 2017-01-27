@@ -4,4 +4,5 @@
   <%= render 'form' %>
 
   <%= link_to 'Delete', [@review.item, @review], method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to 'Back', @item %>
 </div>
