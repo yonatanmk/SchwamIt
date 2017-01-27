@@ -5,6 +5,12 @@
 
 .top-bar {
   background: rgba(46, 44, 45, .7);
+  position: fixed;
+  width: 100%;
+}
+
+.top-bar-spacer {
+  height: 85px;
 }
 
 .top-bar:hover {
