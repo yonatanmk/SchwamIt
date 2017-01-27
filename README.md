@@ -23,7 +23,7 @@ Reviewers:
 * [Amanda Beiner](https://github.com/amandabeiner)
 * [Jenn Eng](https://github.com/jennceng)
 * [Justin Huynh](https://github.com/justinhuynh)
-* [Eben Lowe](https://github.com/ethusiastick)
+* [Eben Lowe](https://github.com/enthusiastick)
 * [Mike Thomson](https://github.com/michaelgt04)
 
 ##Features
