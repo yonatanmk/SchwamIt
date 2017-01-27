@@ -64,7 +64,7 @@ class Review extends Component {
       <div className='review-box'>
         <div>
           <div className={scoreClass}>
-            <h5 className='score-text'>Score: {this.props.score}</h5>
+            <h5 className='score-text' id={`review-${this.props.id}-score`}>Score: {this.props.score}</h5>
           </div>
           <h4> <img className='review-profile' src={this.props.user.profile_photo.thumb.url}/> Review by {this.props.user.username} </h4>
           <h5>Rating: {this.props.rating}/5</h5>

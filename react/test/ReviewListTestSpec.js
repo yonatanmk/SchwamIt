@@ -1,4 +1,5 @@
 import ReviewList from '../src/components/ReviewList';
+import Review from '../src/components/Review';
 
 describe('Review List', () => {
   let wrapper;
@@ -37,12 +38,26 @@ describe('Review List', () => {
         for (let review of wrapper.state().reviews) {
           if (review.id === id) {
             review.score++;
-            console.log(`new: ${review.score}`)
           }
           newReviews.push(review);
         }
-      } else if (action === "down_vote") {
 
+        wrapper.setState({
+          reviews: newReviews,
+        });
+      } else if (action === "down_vote") {
+        let newReviews = [];
+        let id = review.id
+        for (let review of wrapper.state().reviews) {
+          if (review.id === id) {
+            review.score--;
+          }
+          newReviews.push(review);
+        }
+
+        wrapper.setState({
+          reviews: newReviews,
+        });
       }
     });
   })
@@ -83,13 +98,14 @@ describe('Review List', () => {
     });
     it('increases the score by one', done => {
       setTimeout(() => {
-        clickButton('like-1', wrapper);
+        clickOn('#like-1', wrapper);
       },0)
 
       setTimeout(() => {
-        let score = wrapper.find('#review-1-options').text();
+        let score = wrapper.find('#review-1-score').text();
 
-        expect(score).toMatch('1');
+        expect(score).toMatch('Score: 1');
+        done();
       },0)
     })
   });
@@ -100,8 +116,17 @@ describe('Review List', () => {
         <ReviewList />
       );
     });
-    it('decreases the score by one', () => {
+    it('decreases the score by one', done => {
+      setTimeout(() => {
+        clickOn('#dislike-1', wrapper);
+      },0)
 
+      setTimeout(() => {
+        let score = wrapper.find('#review-1-score').text();
+
+        expect(score).toMatch('Score: -1');
+        done();
+      },0)
     })
   });
 
@@ -113,7 +138,7 @@ describe('Review List', () => {
     });
     it('removes the review', done => {
       setTimeout(() => {
-        clickButton('destroy-3', wrapper);
+        clickOn('#destroy-3', wrapper);
       },0)
 
       setTimeout(() => {
@@ -128,14 +153,4 @@ describe('Review List', () => {
     })
   });
 
-  describe("editing a review", () => {
-    beforeEach(() => {
-      wrapper = mount(
-        <ReviewList />
-      );
-    });
-    it('redirects to the edit page', () => {
-
-    })
-  });
 });
