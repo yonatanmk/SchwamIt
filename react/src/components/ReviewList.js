@@ -112,6 +112,7 @@ class ReviewList extends Component {
       })
       .then(response => response.json())
       .then(body => {
+        debugger;
         let newCurrentUser = body.currentUser
         let newReviews = body.reviews;
         let newUsers = body.users;
