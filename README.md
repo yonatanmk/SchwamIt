@@ -10,21 +10,21 @@
 
 Authors:
 
-* Nick Asilo
-* Nick Belanger
-* Scott Ehrmann
-* Yonatan Meschede-Krasa
-* Sean Kalil
+* [Nick Asilo](https://github.com/nasilo)
+* [Nick Belanger](https://github.com/nh-belanger)
+* [Scott Ehrmann](https://github.com/sehrmann)
+* [Yonatan Meschede-Krasa](https://github.com/yonatanmk)
+* [Sean Kalil](https://github.com/kseans8)
 
 Reviewers:
 
-* Nick Alberts
-* Lily Barrett
-* Amanda Beiner
-* Jenn Eng
-* Justin Huynh
-* Eben Lowe
-* Mike Thomson
+* [Nick Alberts](https://github.com/nwalberts)
+* [Lily Barrett](https://github.com/lilybarrett)
+* [Amanda Beiner](https://github.com/amandabeiner)
+* [Jenn Eng](https://github.com/jennceng)
+* [Justin Huynh](https://github.com/justinhuynh)
+* [Eben Lowe](https://github.com/ethusiastick)
+* [Mike Thomson](https://github.com/michaelgt04)
 
 ##Features
 
