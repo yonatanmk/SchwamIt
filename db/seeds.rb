@@ -13,8 +13,6 @@ sean = User.create!(username: 'SevereSean', email: 'SK@email.com', password: 'ad
 scott = User.create!(username: 'ScottLordOfReact', email: 'SE@email.com', password: 'adminpassword', role: 'admin')
 yonatan = User.create!(username: 'CSSMaster', email: 'YMK@email.com', password: 'adminpassword', role: 'admin')
 
-
-
 Item.create!(
   title: 'Power Rangers', description: 'Go Go Power Rangers! WEOSWWWEAHHWOOAWOAHWOAH', user: user, image: File.open(Rails.root + "app/assets/images/seed/maxresdefault.jpg")
 )

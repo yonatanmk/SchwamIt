@@ -5,11 +5,11 @@ const SearchForm = props => {
 
   let addItem = null;
   if (props.signedIn) {
-    addItem = <a href="/items/new">Add a new Thing</a>
+    addItem = <u><a href="/items/new">Add a new Thing</a></u>;
   } else {
-    addItem = <p>Sign in to Submit a Thing</p>
+    addItem = <p>Sign in to Submit a Thing</p>;
   }
-  
+
   return(
     <div className='content-box'>
       <h1>All The Nineties Things</h1>

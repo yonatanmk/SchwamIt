@@ -5,6 +5,11 @@
 
 .top-bar {
   background: rgba(46, 44, 45, .7);
+  position: fixed;
+}
+
+.top-bar-spacer {
+  height: 85px;
 }
 
 .top-bar:hover {
@@ -34,6 +39,7 @@
 body {
   /*background-color: #05A0A8;*/
   background-image: url(/assets/floppies.png);
+  background-attachment: fixed;
 }
 
 a {
@@ -94,12 +100,12 @@ h1 {
 
 .error-msg {
   width: 900px;
-  color: #EB6564;
+  color: black;
   margin: auto;
   font-family: 'Bevan', cursive;
   margin: auto;
   margin-top: 50px;
-  background: rgba(46, 44, 45, .7);
+  background: rgba(255, 255, 255, .7);
   border-radius: 50px;
   padding: 30px 50px 30px 50px;
 }
