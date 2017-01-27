@@ -28,15 +28,15 @@ Reviewers:
 
 ##Features
 
-This is a site based on user-generated content. All content is publicly available; visitors can see all content, but not submit items, reviews, or vote on reviews. Once a visitor has created an account, they are free to perform these actions.
+* This is a site based on user-generated content. All content is publicly available; visitors can see all content, but not submit items, reviews, or vote on reviews. Once a visitor has created an account, they are free to perform these actions.
 
-The index page automatically updates to show newly posted content in real time.
+* The index page automatically updates to show newly posted content in real time.
 
-Voting on reviews updates the reviews' score in real time, and reviews are reordered based on their score.
+* Voting on reviews updates the reviews' score in real time, and reviews are reordered based on their score.
 
-Admins can delete unwanted content as well as delete toxic user accounts.
+* Admins can delete unwanted content as well as delete toxic user accounts.
 
-Users are notified via email when their items have received a new review.
+* Users are notified via email when their items have received a new review.
 
 ##Core Technologies
 
