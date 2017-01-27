@@ -43,7 +43,7 @@ class ItemList extends Component {
     if (this.state.items) {
       items = this.state.items.filter((item)=>{return item.title.toLowerCase().search(this.props.query.toLowerCase()) > -1; });
       items = items.map((item) => {
-        let className = 'small-2 large-4 column list-item-box';
+        let className = 'small-4 column list-item-box';
         if (item == this.state.items[this.state.items.length - 1]) {
           className += ' end';
         }
