@@ -10,10 +10,10 @@
 
 Authors:
 
+* [Yonatan Meschede-Krasa](https://github.com/yonatanmk)
 * [Nick Asilo](https://github.com/nasilo)
 * [Nick Belanger](https://github.com/nh-belanger)
 * [Scott Ehrmann](https://github.com/sehrmann)
-* [Yonatan Meschede-Krasa](https://github.com/yonatanmk)
 * [Sean Kalil](https://github.com/kseans8)
 
 Reviewers:
@@ -30,9 +30,13 @@ Reviewers:
 
 * This is a site based on user-generated content. All content is publicly available; visitors can see all content, but not submit items, reviews, or vote on reviews. Once a visitor has created an account, they are free to perform these actions.
 
-* The index page automatically updates to show newly posted content in real time.
+* The index and search pages automatically update to show newly posted content in real time.
 
-* Voting on reviews updates the reviews' score in real time, and reviews are reordered based on their score.
+* Users can submit items, along with images that are stored using Amazon S3 Cloud Storage Service.
+
+* Users can post reviews which are organized by their scores with the highest scoring reviews appearing at the top of the list.
+
+* Voting on reviews updates the reviews' score in real time.
 
 * Admins can delete unwanted content as well as delete toxic user accounts.
 
@@ -63,7 +67,9 @@ Reviewers:
 * DatabaseCleaner
 
 ###Gems
+* SimpleForm
 * Devise
 * CarrierWave
-* ReCaptcha
+* Google reCAPTCHA
 * FontAwesome
+* ActionMailer
