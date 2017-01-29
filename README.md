@@ -44,7 +44,7 @@ Reviewers:
 
 ![MarkdownExplorer](index.png)
 
-![MarkdownExplorer](review.png)
+![MarkdownExplorer](reviews.png)
 
 ##Core Technologies
 
