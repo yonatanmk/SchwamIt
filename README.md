@@ -6,7 +6,7 @@
 
 ## Overview
 
-[SchwamIt](schwamit.herokuapp.com) is a review site dedicated to topics from the 1990's.
+[SchwamIt](https://schwamit.herokuapp.com) is a review site dedicated to topics from the 1990's.
 
 Authors:
 
