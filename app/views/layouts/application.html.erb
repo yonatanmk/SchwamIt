@@ -40,7 +40,7 @@
         <div class='error-msg'>
           <% msg = "Invalid Electronic Mail or Password" if msg == 'Invalid Email or password.' %>
           <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-        </div class='error'>
+        </div>
       <% end %>
     </div>
 
